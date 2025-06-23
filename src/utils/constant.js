@@ -12,3 +12,9 @@ export const YOUTUBE_COMMENTS_API = (videoId, maxResults = 50) =>
 
 export const YOUTUBE_SEARCH_API =
   "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+
+export const DARK_THEME_ICON =
+  "https://img.icons8.com/?size=100&id=FwypVM1CXDbT&format=png&color=000000";
+
+export const LIGHT_THEME_ICON =
+  "https://img.icons8.com/?size=100&id=9313&format=png&color=FFFFFF";
