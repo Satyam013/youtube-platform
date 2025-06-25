@@ -1,12 +1,12 @@
 import React from "react";
-import ButtonList from "./ButtonList";
 import VideoContainer from "./VideoContainer";
 
 const MainContainer = () => {
   return (
-    <div>
-      <ButtonList />
-      <VideoContainer />
+    <div className="flex flex-col w-full overflow-x-hidden">
+      <div className="flex-1 overflow-y-auto overflow-x-hidden">
+        <VideoContainer />
+      </div>
     </div>
   );
 };

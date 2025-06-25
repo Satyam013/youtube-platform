@@ -12,7 +12,6 @@
 //     const data = await fetch(YOUTUBE_COMMENTS_API(videoId));
 //     const json = await data.json();
 //     setComments(json.items);
-//     console.log(json.items);
 //   };
 
 //   return (
