@@ -1,8 +1,6 @@
-// const GOOGLE_API_KEY = "AIzaSyCQpUa-DlgG5M0HA9SvTazU3caX1KEmSjY";
-const GOOGLE_API_KEY = "AIzaSyBLSfUm8iGz6YOHC120ZxjAfTSjyn-5ukM";
+const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
-export const GOOGLE_CLIENT_ID =
-  "362856116394-ij71o5m0fojq36nidbcmej4gde6l3pfu.apps.googleusercontent.com";
+export const GOOGLE_CLIENT_ID = process.REACT_APP_GOOGLE_CLIENT_KEY;
 
 export const LIVE_CHAT_COUNT = 25;
 
