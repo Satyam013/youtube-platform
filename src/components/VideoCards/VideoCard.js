@@ -1,46 +1,9 @@
-// import React from "react";
-
-// const VideoCard = ({ info, isAd = false }) => {
-//   const { snippet } = info;
-//   const { title, thumbnails, channelTitle } = snippet;
-
-//   return (
-//     <div className="w-[310px] rounded-md overflow-hidden shadow-md bg-white relative hover:bg-gray-200">
-//       {isAd && (
-//         <span className="absolute top-50 left- bg-yellow-500 text-white text-xs font-semibold px-2 py-1 rounded">
-//           AD
-//         </span>
-//       )}
-
-//       {/* Thumbnail */}
-//       <img
-//         src={thumbnails?.medium?.url}
-//         alt={title}
-//         className="w-full h-[170px] object-cover"
-//       />
-
-//       {/* Content */}
-//       <div className="p-3 flex flex-col justify-between h-[110px]">
-//         <h3 className="text-md font-semibold text-gray-900 line-clamp-2">
-//           {title}
-//         </h3>
-//         <p className="text-sm text-gray-600 mt-1">{channelTitle}</p>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default VideoCard;
-
-// src/components/VideoCard.js
-
-import React from "react";
 import {
   formatViewCount,
   formatPublishedTime,
   formatLikeCount,
   formatDuration,
-} from "../utils/format";
+} from "../../utils/format";
 
 const VideoCard = ({ info, isAd }) => {
   const { snippet, statistics, contentDetails } = info;

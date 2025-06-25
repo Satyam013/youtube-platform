@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { YOUTUBE_SPORTS_API } from "../utils/constant";
-import VideoCardTrending from "./VideoCardTrending"; // Use the trending-style full-info card
+import { YOUTUBE_SPORTS_API } from "../../utils/constant";
+import VideoCardTrending from "../VideoCards/VideoCardTrending"; // Use the trending-style full-info card
 import { Link } from "react-router-dom";
 
 const Sports = () => {

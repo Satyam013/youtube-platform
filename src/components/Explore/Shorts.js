@@ -1,10 +1,7 @@
 // src/components/Shorts.js
 import React, { useEffect, useState } from "react";
-import { YOUTUBE_SHORTS_API } from "../utils/constant";
-import ShortCard from "./ShortCard";
-import VideoCardTrending from "./VideoCardTrending";
-import { Link } from "react-router-dom";
-import VideoCard from "./VideoCard";
+import { YOUTUBE_SHORTS_API } from "../../utils/constant";
+import ShortCard from "../Explore/Shorts";
 
 const Shorts = () => {
   const [shorts, setShorts] = useState([]);

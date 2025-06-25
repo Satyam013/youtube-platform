@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { getTrendingMusicVideosAPI } from "../utils/constant";
+import { getTrendingMusicVideosAPI } from "../../utils/constant";
 import { Link } from "react-router-dom";
-import VideoCardTrending from "./VideoCardTrending";
+import VideoCardTrending from "../VideoCards/VideoCardTrending";
 
 const MusicVideos = () => {
   const [musicVideos, setMusicVideos] = useState([]);

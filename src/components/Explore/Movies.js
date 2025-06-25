@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import VideoCardMovies from "./VideoCardMovies"; // This will now act like VideoCardTrending
-import { API_OPTIONS } from "../utils/constant";
+import { API_OPTIONS } from "../../utils/constant";
 import { Link } from "react-router-dom";
+import VideoCardMovies from "../VideoCards/VideoCardMovies";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);

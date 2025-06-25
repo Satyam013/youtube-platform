@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { YOUTUBE_LIVE_API } from "../utils/constant";
 import { Link } from "react-router-dom";
-import VideoCardTrending from "./VideoCardTrending";
+import { YOUTUBE_LIVE_API } from "../../utils/constant";
+import VideoCardTrending from "../VideoCards/VideoCardTrending";
 
 const Live = () => {
   const [liveVideos, setLiveVideos] = useState([]);

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { YOUTUBE_PODCASTS_API } from "../utils/constant";
-import VideoCard from "./VideoCard";
+import { YOUTUBE_PODCASTS_API } from "../../utils/constant";
+import VideoCard from "../VideoCards/VideoCard";
 import { Link } from "react-router-dom";
 
-const PodcastPage = () => {
+const Podcast = () => {
   const [podcasts, setPodcasts] = useState([]);
 
   useEffect(() => {
@@ -37,4 +37,4 @@ const PodcastPage = () => {
   );
 };
 
-export default PodcastPage;
+export default Podcast;

@@ -1,44 +1,5 @@
-// import React, { useEffect, useState } from "react";
-// import { YOUTUBE_COMMENTS_API } from "../utils/constant";
-
-// const Comments = ({ videoId }) => {
-//   const [comments, setComments] = useState([]);
-
-//   useEffect(() => {
-//     getComments();
-//   }, []);
-
-//   const getComments = async () => {
-//     const data = await fetch(YOUTUBE_COMMENTS_API(videoId));
-//     const json = await data.json();
-//     setComments(json.items);
-//   };
-
-//   return (
-//     <div>
-//       <h2>Top Comments</h2>
-//       {comments.map((comment) => {
-//         const snippet = comment.snippet.topLevelComment.snippet;
-//         return (
-//           <div key={comment.id} style={{ marginBottom: "20px" }}>
-//             <img
-//               src={snippet.authorProfileImageUrl}
-//               alt="Avatar"
-//               style={{ width: "40px", borderRadius: "50%", verticalAlign: "middle", marginRight: "10px" }}
-//             />
-//             <strong>{snippet.authorDisplayName}</strong>
-//             <p dangerouslySetInnerHTML={{ __html: snippet.textDisplay }} />
-//           </div>
-//         );
-//       })}
-//     </div>
-//   );
-// };
-
-// export default Comments;
-
 import React, { useEffect, useState } from "react";
-import { YOUTUBE_COMMENTS_API } from "../utils/constant"; // update path if needed
+import { YOUTUBE_COMMENTS_API } from "../../utils/constant"; // update path if needed
 
 const Comments = ({ videoId }) => {
   const [comments, setComments] = useState([]);

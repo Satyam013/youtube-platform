@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import {
   YOUTUBE_TRENDING_VIDEOS,
   YOUTUBE_VIDEO_DETAILS,
-} from "../utils/constant";
+} from "../../utils/constant";
 import { Link } from "react-router-dom";
-import VideoCardTrending from "./VideoCardTrending";
+import VideoCardTrending from "../VideoCards/VideoCardTrending";
 
 const Trending = () => {
   const [videos, setVideos] = useState([]);

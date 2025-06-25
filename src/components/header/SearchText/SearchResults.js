@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import VideoCardTrending from "../VideoCardTrending";
+import VideoCardTrending from "../../VideoCards/VideoCardTrending";
 
 const SearchResults = () => {
   const { results, query } = useSelector((store) => store.searchResult);

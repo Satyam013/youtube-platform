@@ -1,5 +1,5 @@
 import React from "react";
-import VideoContainer from "./VideoContainer";
+import VideoContainer from "../VideoCards/VideoContainer";
 
 const MainContainer = () => {
   return (

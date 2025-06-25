@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { YOUTUBE_COURSES_API } from "../utils/constant";
+import { YOUTUBE_COURSES_API } from "../../utils/constant";
 import { Link } from "react-router-dom";
-import VideoCard from "./VideoCard";
+import VideoCard from "../VideoCards/VideoCard";
 
 const Courses = () => {
   const [videos, setVideos] = useState([]);

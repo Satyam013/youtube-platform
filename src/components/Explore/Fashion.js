@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { YOUTUBE_FASHION_API } from "../utils/constant";
-import VideoCard from "./VideoCard";
 import { Link } from "react-router-dom";
+import { YOUTUBE_FASHION_API } from "../../utils/constant";
+import VideoCard from "../VideoCards/VideoCard";
 
 const FashionPage = () => {
   const [videos, setVideos] = useState([]);

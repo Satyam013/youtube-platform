@@ -1,7 +1,7 @@
 import React from "react";
-import HeaderLogo from "./header/HeaderLogo";
-import SearchBar from "./header/SearchBar";
-import UserProfileIcon from "./header/UserProfileIcon";
+import HeaderLogo from "../Header/Logo_Icon";
+import SearchBar from "../Header/SearchText/SearchBar";
+import UserProfileIcon from "../Header/UserProfileIcon";
 
 const Head = () => {
   return (

@@ -5,11 +5,10 @@ import {
   HOME_ICON,
   LIKE_ICON,
   PLAYLIST_ICON,
-  SHORTS_ICON,
   SUBSCRIPTION_ICON,
   WATCH_LATER_ICON,
   YOUR_VIDEOS_ICON,
-} from "../utils/logoImage";
+} from "../../utils/logoImage";
 
 const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
@@ -46,31 +45,31 @@ const Sidebar = () => {
       <h1 className="font-bold pt-5">You ➡️</h1>
       <ul>
         <li>
-          <Link to="/history" className={menuItemClass}>
+          <Link to="/same" className={`text-white   bg-black ${menuItemClass}`}>
             <img alt="subs_logo" src={HISTORY_ICON} className="h-4 w-4" />
             History
           </Link>
         </li>
         <li>
-          <Link to="/playlist" className={menuItemClass}>
+          <Link to="/same" className={`text-white   bg-black ${menuItemClass}`}>
             <img alt="subs_logo" src={PLAYLIST_ICON} className="h-4 w-4" />
             Playlists
           </Link>
         </li>
         <li>
-          <Link to="/your-videos" className={menuItemClass}>
+          <Link to="/same" className={`text-white   bg-black ${menuItemClass}`}>
             <img alt="subs_logo" src={YOUR_VIDEOS_ICON} className="h-4 w-4" />
             Your videos
           </Link>
         </li>
         <li>
-          <Link to="/watch-later" className={menuItemClass}>
+          <Link to="/same" className={`text-white   bg-black ${menuItemClass}`}>
             <img alt="subs_logo" src={WATCH_LATER_ICON} className="h-4 w-4" />
             Watch Later
           </Link>
         </li>
         <li>
-          <Link to="/liked" className={menuItemClass}>
+          <Link to="/same" className={`text-white bg-black ${menuItemClass}`}>
             <img alt="subs_logo" src={LIKE_ICON} className="h-4 w-4" />
             Liked videos
           </Link>
@@ -186,9 +185,9 @@ const Sidebar = () => {
           </Link>
         </li>
       </ul>
-
+      <hr className="border-t border-gray-700 my-2" />
       {/* Other */}
-      <ul className="pt-5">
+      <ul className="pt-2">
         <li>
           <Link to="/settings" className={menuItemClass}>
             Settings

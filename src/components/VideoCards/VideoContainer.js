@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { YOUTUBE_VIDEOS_API } from "../utils/constant";
+import { YOUTUBE_VIDEOS_API } from "../../utils/constant";
 import VideoCard from "./VideoCard";
 import { Link } from "react-router-dom";
-import MOCK_AD_VIDEO from "../utils/mockAd";
+import MOCK_AD_VIDEO from "../../utils/mockAd";
 import AdVideoCard from "./AdVideoCard";
-import AD_VIDEOS from "../utils/mockAd";
+import AD_VIDEOS from "../../utils/mockAd";
 
 const VideoContainer = () => {
   const [videos, setVideos] = useState([]);

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/appSlice";
 import { useSearchParams } from "react-router-dom";
-import Comments from "./Comments-API";
-import CommentsContainer from "./CommentsContainer";
-import LiveChat from "./LiveChat";
+import Comments from "../components/Comments/Comments-API";
+import CommentsContainer from "./Comments/CommentsContainer";
+import LiveChat from "./ChatMessages/LiveChat";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();

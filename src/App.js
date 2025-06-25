@@ -1,22 +1,26 @@
-import { Provider } from "react-redux";
-import "./App.css";
-import Body from "./components/Body";
-import Head from "./components/Head";
-import store from "./utils/store";
+import { Provider, useSelector } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import MainContainer from "./components/MainContainer";
+
+import "./App.css";
+
+import store from "./utils/store";
+import Body from "./components/Body";
 import WatchPage from "./components/WatchPage";
-import Trending from "./components/Trending";
-import MusicVideos from "./components/MusicVideos";
-import Movies from "./components/Movies";
-import Sports from "./components/Sports";
-import Live from "./components/Live";
-import Games from "./components/Games";
-import Courses from "./components/Courses";
-import Podcast from "./components/Podcast";
-import Fashion from "./components/Fashion";
-import Shorts from "./components/Shorts";
-import SearchResults from "./components/header/SearchResults";
+import MainContainer from "./components/BodySection/MainContainer";
+
+import Shorts from "./components/Explore/Shorts";
+import MusicVideos from "./components/Explore/MusicVideos";
+import Trending from "./components/Explore/Trending";
+import Movies from "./components/Explore/Movies";
+import Sports from "./components/Explore/Sports";
+import Live from "./components/Explore/Live";
+import Games from "./components/Explore/Games";
+import Courses from "./components/Explore/Courses";
+import FashionPage from "./components/Explore/Fashion";
+import Podcast from "./components/Explore/Podcast";
+import SearchResults from "./components/Header/SearchText/SearchResults";
+import Shopping from "./components/Explore/Shopping";
+import News from "./components/Explore/News";
 
 const appRouter = createBrowserRouter([
   {
@@ -65,7 +69,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "fashion",
-        element: <Fashion />,
+        element: <FashionPage />,
       },
       {
         path: "podcasts",
@@ -75,17 +79,32 @@ const appRouter = createBrowserRouter([
         path: "/results",
         element: <SearchResults />,
       },
+      {
+        path: "shopping",
+        element: <Shopping />,
+      },
+      {
+        path: "news",
+        element: <News />,
+      },
     ],
   },
 ]);
 
+const ThemedApp = () => {
+  const isDarkTheme = useSelector((store) => store.theme.isDarkTheme);
+
+  return (
+    <div className={isDarkTheme ? "dark" : ""}>
+      <RouterProvider router={appRouter} />
+    </div>
+  );
+};
+
 function App() {
   return (
     <Provider store={store}>
-      <div>
-        {/* <Head /> */}
-        <RouterProvider router={appRouter} />
-      </div>
+      <ThemedApp />
     </Provider>
   );
 }

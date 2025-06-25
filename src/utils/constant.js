@@ -1,7 +1,5 @@
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
-export const GOOGLE_CLIENT_ID = process.REACT_APP_GOOGLE_CLIENT_KEY;
-
 export const LIVE_CHAT_COUNT = 25;
 
 export const YOUTUBE_VIDEOS_API =
@@ -40,7 +38,7 @@ export const MOCK_AD_API = `https://www.googleapis.com/youtube/v3/search?part=sn
 
 export const YOUTUBE_SPORTS_API = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=sports&type=video&key=${GOOGLE_API_KEY}`;
 
-export const YOUTUBE_LIVE_API = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&eventType=live&maxResults=25&regionCode=IN&q=live&key=${GOOGLE_API_KEY}`;
+export const YOUTUBE_LIVE_API = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&eventType=live&maxResults=25&regionCode=US&q=movies&key=${GOOGLE_API_KEY}`;
 
 export const YOUTUBE_GAMING_API = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&videoCategoryId=20&maxResults=25&regionCode=IN&key=${GOOGLE_API_KEY}`;
 
@@ -54,3 +52,7 @@ export const YOUTUBE_SHORTS_API = `https://www.googleapis.com/youtube/v3/search?
 
 export const YOUTUBE_SEARCH_RESULTS_API = (query) =>
   `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&type=video&key=${GOOGLE_API_KEY}&q=${query}`;
+
+export const YOUTUBE_SHOPPING_API = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=shopping%20haul&type=video&key=${GOOGLE_API_KEY}`;
+
+export const YOUTUBE_NEWS_API = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=latest%20news&type=video&key=${GOOGLE_API_KEY}`;
