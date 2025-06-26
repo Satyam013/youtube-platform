@@ -2,18 +2,16 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { YOUTUBE_GAMING_API } from "../../utils/constants/constant";
 import VideoCardTrending from "../VideoCards/VideoCardTrending";
+import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch"; // ✅ Import the hook
 
 const Games = () => {
   const [gamingVideos, setGamingVideos] = useState([]);
+  const safeFetch = useSafeYoutubeFetch(); // ✅ Use the hook
 
   const fetchGamingVideos = async () => {
-    try {
-      const response = await fetch(YOUTUBE_GAMING_API);
-      const data = await response.json();
-      setGamingVideos(data.items || []);
-    } catch (error) {
-      console.error("Failed to fetch gaming videos:", error);
-    }
+    const data = await safeFetch(YOUTUBE_GAMING_API); // ✅ Replace fetch with safeFetch
+    if (!data) return;
+    setGamingVideos(data.items || []);
   };
 
   useEffect(() => {

@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { YOUTUBE_COMMENTS_API } from "../../utils/constants/constant"; // update path if needed
+import { YOUTUBE_COMMENTS_API } from "../../utils/constants/constant";
+import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch"; // ✅ Import hook
 
 const Comments = ({ videoId }) => {
   const [comments, setComments] = useState([]);
+  const safeFetch = useSafeYoutubeFetch(); // ✅ Use hook
 
   useEffect(() => {
     if (!videoId) return;
 
     const fetchComments = async () => {
-      try {
-        const res = await fetch(YOUTUBE_COMMENTS_API(videoId));
-        const data = await res.json();
-        setComments(data.items || []);
-      } catch (err) {
-        console.error("Error fetching comments:", err);
-      }
+      const data = await safeFetch(YOUTUBE_COMMENTS_API(videoId));
+      if (!data) return;
+      setComments(data.items || []);
     };
 
     fetchComments();

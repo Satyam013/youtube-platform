@@ -2,25 +2,25 @@ import React, { useEffect, useState } from "react";
 import { getTrendingMusicVideosAPI } from "../../utils/constants/constant";
 import { Link } from "react-router-dom";
 import VideoCardTrending from "../VideoCards/VideoCardTrending";
+import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch"; // ✅ Import the hook
 
 const MusicVideos = () => {
   const [musicVideos, setMusicVideos] = useState([]);
+  const safeFetch = useSafeYoutubeFetch(); // ✅ Use the hook
 
   useEffect(() => {
     fetchTrendingMusic();
   }, []);
 
   const fetchTrendingMusic = async () => {
-    try {
-      const res = await fetch(getTrendingMusicVideosAPI("IN"));
-      const data = await res.json();
-      setMusicVideos(data.items);
-    } catch (error) {}
+    const data = await safeFetch(getTrendingMusicVideosAPI("IN")); // ✅ Use safeFetch
+    if (!data) return;
+    setMusicVideos(data.items || []);
   };
 
   return (
-    <div className="p-4  text-black min-h-screen dark:bg-black ">
-      <h1 className="text-2xl font-bold mb-4 dark:text-white ">
+    <div className="p-4 text-black min-h-screen dark:bg-black">
+      <h1 className="text-2xl font-bold mb-4 dark:text-white">
         🎵 Trending Music Videos
       </h1>
 

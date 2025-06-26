@@ -2,19 +2,17 @@ import React, { useEffect, useState } from "react";
 import { YOUTUBE_COURSES_API } from "../../utils/constants/constant";
 import { Link } from "react-router-dom";
 import VideoCard from "../VideoCards/VideoCard";
+import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch"; // ✅ Import the hook
 
 const Courses = () => {
   const [videos, setVideos] = useState([]);
+  const safeFetch = useSafeYoutubeFetch(); // ✅ Use the hook
 
   useEffect(() => {
     const fetchCourseVideos = async () => {
-      try {
-        const response = await fetch(YOUTUBE_COURSES_API);
-        const data = await response.json();
-        setVideos(data.items || []);
-      } catch (err) {
-        console.error("Error fetching course videos:", err);
-      }
+      const data = await safeFetch(YOUTUBE_COURSES_API); // ✅ Use safeFetch
+      if (!data) return;
+      setVideos(data.items || []);
     };
 
     fetchCourseVideos();

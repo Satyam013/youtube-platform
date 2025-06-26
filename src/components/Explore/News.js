@@ -1,23 +1,20 @@
-// components/News.js
 import React, { useEffect, useState } from "react";
 import { YOUTUBE_NEWS_API } from "../../utils/constants/constant";
 import VideoCardTrending from "../VideoCards/VideoCardTrending";
+import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch"; // ✅ Import the hook
 
 const News = () => {
   const [videos, setVideos] = useState([]);
+  const safeFetch = useSafeYoutubeFetch(); // ✅ Use the hook
 
   useEffect(() => {
     fetchNewsVideos();
   }, []);
 
   const fetchNewsVideos = async () => {
-    try {
-      const res = await fetch(YOUTUBE_NEWS_API);
-      const data = await res.json();
-      setVideos(data.items);
-    } catch (err) {
-      console.error("Error fetching news videos:", err);
-    }
+    const data = await safeFetch(YOUTUBE_NEWS_API); // ✅ Use safeFetch
+    if (!data) return;
+    setVideos(data.items || []);
   };
 
   return (

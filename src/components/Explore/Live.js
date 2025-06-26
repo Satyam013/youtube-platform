@@ -2,26 +2,24 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { YOUTUBE_LIVE_API } from "../../utils/constants/constant";
 import VideoCardTrending from "../VideoCards/VideoCardTrending";
+import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch"; // ✅ Import the hook
 
 const Live = () => {
   const [liveVideos, setLiveVideos] = useState([]);
+  const safeFetch = useSafeYoutubeFetch(); // ✅ Use the hook
 
   useEffect(() => {
     const fetchLive = async () => {
-      try {
-        const searchRes = await fetch(YOUTUBE_LIVE_API);
-        const searchData = await searchRes.json();
+      const searchData = await safeFetch(YOUTUBE_LIVE_API); // ✅ Replaced fetch with safeFetch
+      if (!searchData) return;
 
-        if (!searchData.items?.length) {
-          console.warn("No live videos found.");
-          setLiveVideos([]);
-          return;
-        }
-
-        setLiveVideos(searchData.items);
-      } catch (err) {
-        console.error("Error fetching live videos:", err);
+      if (!searchData.items?.length) {
+        console.warn("No live videos found.");
+        setLiveVideos([]);
+        return;
       }
+
+      setLiveVideos(searchData.items);
     };
 
     fetchLive();

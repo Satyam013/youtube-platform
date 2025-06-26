@@ -1,24 +1,22 @@
 import React, { useEffect, useState, useRef } from "react";
 import { YOUTUBE_SHORTS_API } from "../../utils/constants/constant";
 import ShortCard from "./ShortCard";
+import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch"; // ✅ Import hook
 
 const Shorts = () => {
   const [shorts, setShorts] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef();
+  const safeFetch = useSafeYoutubeFetch(); // ✅ Use the hook
 
   useEffect(() => {
     fetchShorts();
   }, []);
 
   const fetchShorts = async () => {
-    try {
-      const res = await fetch(YOUTUBE_SHORTS_API);
-      const data = await res.json();
-      setShorts(data.items || []);
-    } catch (err) {
-      console.error("Quota exceeded or fetch error. Using mock data.");
-    }
+    const data = await safeFetch(YOUTUBE_SHORTS_API); // ✅ Use safeFetch
+    if (!data) return;
+    setShorts(data.items || []);
   };
 
   const handleScroll = () => {

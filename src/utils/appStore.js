@@ -5,6 +5,7 @@ import chatSlice from "./slices/chatSlice";
 import themeSlice from "./slices/themeSlice";
 import searchResultReducer from "./slices/searchResultSlice";
 import watchActionSlice from "./slices/watchActionsSlice";
+import apiQuotaSlice from "./slices/apiQuotaSlice";
 
 const appStore = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const appStore = configureStore({
     searchResult: searchResultReducer,
     theme: themeSlice,
     watchActions: watchActionSlice,
+    apiQuota: apiQuotaSlice,
   },
 });
 

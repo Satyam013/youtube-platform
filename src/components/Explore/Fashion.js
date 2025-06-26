@@ -2,22 +2,20 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { YOUTUBE_FASHION_API } from "../../utils/constants/constant";
 import VideoCard from "../VideoCards/VideoCard";
+import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch"; // ✅ Import the hook
 
 const FashionPage = () => {
   const [videos, setVideos] = useState([]);
+  const safeFetch = useSafeYoutubeFetch(); // ✅ Use the hook
 
   useEffect(() => {
     fetchFashionVideos();
   }, []);
 
   const fetchFashionVideos = async () => {
-    try {
-      const res = await fetch(YOUTUBE_FASHION_API);
-      const json = await res.json();
-      setVideos(json.items || []);
-    } catch (err) {
-      console.error("Failed to fetch fashion videos:", err);
-    }
+    const json = await safeFetch(YOUTUBE_FASHION_API); // ✅ Replace fetch with safeFetch
+    if (!json) return;
+    setVideos(json.items || []);
   };
 
   return (
@@ -38,6 +36,3 @@ const FashionPage = () => {
 };
 
 export default FashionPage;
-
-
-

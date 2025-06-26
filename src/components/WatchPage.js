@@ -3,14 +3,12 @@ import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/slices/appSlice";
 import { useSearchParams } from "react-router-dom";
 import Comments from "../components/Comments/Comments-API";
-import CommentsContainer from "./Comments/CommentsContainer";
-import LiveChat from "./ChatMessages/LiveChat";
 import WatchControls from "./WatchControls";
 import {
-  YOUTUBE_COMMENTS_API,
   YOUTUBE_SUBSCRIBER_API,
   YOUTUBE_VIDEO_DETAILS,
 } from "../utils/constants/constant";
+import useSafeYoutubeFetch from "../hooks/useSafeYoutubeFetch"; // ✅ Hook import
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
@@ -18,6 +16,7 @@ const WatchPage = () => {
 
   const [videoDetails, setVideoDetails] = useState(null);
   const [subscribers, setSubscribers] = useState(null);
+  const safeFetch = useSafeYoutubeFetch(); // ✅ Hook usage
 
   const videoId = searchParams.get("v");
 
@@ -27,22 +26,20 @@ const WatchPage = () => {
   }, [videoId]);
 
   const fetchVideoDetails = async () => {
-    try {
-      const res = await fetch(YOUTUBE_VIDEO_DETAILS(videoId));
-      const data = await res.json();
-      const video = data.items?.[0];
-      setVideoDetails(video);
+    const data = await safeFetch(YOUTUBE_VIDEO_DETAILS(videoId)); // ✅ Safe fetch
+    if (!data) return;
 
-      if (video?.snippet?.channelId) {
-        const channelRes = await fetch(
-          YOUTUBE_SUBSCRIBER_API(video?.snippet?.channelId)
-        );
-        const channelData = await channelRes.json();
-        const subs = channelData.items?.[0]?.statistics?.subscriberCount;
-        setSubscribers(subs);
-      }
-    } catch (error) {
-      console.error("Error fetching video or channel details:", error);
+    const video = data.items?.[0];
+    setVideoDetails(video);
+
+    if (video?.snippet?.channelId) {
+      const channelData = await safeFetch(
+        YOUTUBE_SUBSCRIBER_API(video.snippet.channelId)
+      ); // ✅ Safe fetch
+      if (!channelData) return;
+
+      const subs = channelData.items?.[0]?.statistics?.subscriberCount;
+      setSubscribers(subs);
     }
   };
 

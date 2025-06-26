@@ -4,33 +4,30 @@ import {
   YOUTUBE_VIDEO_DETAILS,
 } from "../../utils/constants/constant";
 import { Link } from "react-router-dom";
-import VideoCardTrending from "../VideoCards/VideoCardTrending";
 import VideoCard from "../VideoCards/VideoCard";
+import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch"; // ✅ Import hook
 
 const Trending = () => {
   const [videos, setVideos] = useState([]);
+  const safeFetch = useSafeYoutubeFetch(); // ✅ Use hook
 
   useEffect(() => {
     fetchTrendingVideos();
   }, []);
 
   const fetchTrendingVideos = async () => {
-    try {
-      const res = await fetch(YOUTUBE_TRENDING_VIDEOS);
-      const data = await res.json();
+    const resData = await safeFetch(YOUTUBE_TRENDING_VIDEOS);
+    if (!resData) return;
 
-      const videoIds = data.items.map((v) => v.id).join(",");
-      const detailRes = await fetch(YOUTUBE_VIDEO_DETAILS(videoIds));
-      const details = await detailRes.json();
+    const videoIds = resData.items.map((v) => v.id).join(",");
+    const detailData = await safeFetch(YOUTUBE_VIDEO_DETAILS(videoIds));
+    if (!detailData) return;
 
-      setVideos(details.items);
-    } catch (err) {
-      console.error("Error fetching trending videos:", err);
-    }
+    setVideos(detailData.items || []);
   };
 
   return (
-    <div className="min-h-screen w-full  text-black px-4 pl-2 pt-4">
+    <div className="min-h-screen w-full text-black px-4 pl-2 pt-4">
       <h1 className="text-3xl font-semibold mb-6 px-2 dark:text-white">
         🔥 Trending
       </h1>
@@ -38,7 +35,6 @@ const Trending = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {videos.map((video) => (
           <Link key={video.id} to={`/watch?v=${video.id}`}>
-            {/* <VideoCardTrending info={video} /> */}
             <VideoCard info={video} />
           </Link>
         ))}

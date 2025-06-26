@@ -1,24 +1,21 @@
-// components/Shopping.js
 import React, { useEffect, useState } from "react";
 import { YOUTUBE_SHOPPING_API } from "../../utils/constants/constant";
 import { Link } from "react-router-dom";
 import VideoCardTrending from "../VideoCards/VideoCardTrending";
+import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch"; // ✅ Import the hook
 
 const Shopping = () => {
   const [videos, setVideos] = useState([]);
+  const safeFetch = useSafeYoutubeFetch(); // ✅ Initialize the hook
 
   useEffect(() => {
     fetchShoppingVideos();
   }, []);
 
   const fetchShoppingVideos = async () => {
-    try {
-      const res = await fetch(YOUTUBE_SHOPPING_API);
-      const data = await res.json();
-      setVideos(data.items);
-    } catch (err) {
-      console.error("Error fetching shopping videos:", err);
-    }
+    const data = await safeFetch(YOUTUBE_SHOPPING_API); // ✅ Use safeFetch
+    if (!data) return;
+    setVideos(data.items || []);
   };
 
   return (
