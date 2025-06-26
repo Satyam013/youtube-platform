@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { API_OPTIONS } from "../../utils/constants/constant";
+import {
+  API_OPTIONS,
+  getTrendingMoviesAPI,
+} from "../../utils/constants/constant";
 import { Link } from "react-router-dom";
 import VideoCardMovies from "../VideoCards/VideoCardMovies";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
 
-  const fetchTopRatedMovies = async () => {
+  const fetchTrendingMovies = async () => {
     try {
-      const response = await fetch(
-        "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
-        API_OPTIONS
-      );
+      const response = await fetch(getTrendingMoviesAPI("US"), API_OPTIONS);
       const data = await response.json();
       setMovies(data.results || []);
     } catch (error) {
@@ -20,7 +20,7 @@ const Movies = () => {
   };
 
   useEffect(() => {
-    fetchTopRatedMovies();
+    fetchTrendingMovies();
   }, []);
 
   return (
