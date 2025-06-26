@@ -97,10 +97,11 @@ Key Engineering Concepts:
 ## 🏗️ Folder Structure
 
 <details>
-
-<summary>📁 Click to view the project structure</summary>
+<summary>📁 <strong>Click to view the folder structure</strong></summary>
 
 <br/>
+
+**📌 This is the main project layout for reference:**
 
 ```
 namaste-youtube/
