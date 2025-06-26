@@ -98,8 +98,6 @@ Key Engineering Concepts:
 
 ---
 
----
-
 ## 🧰 Technologies Used
 
 | Technology                | Purpose                                       |
@@ -116,9 +114,9 @@ Key Engineering Concepts:
 
 ---
 
-Deployment : This project is automatically deployed via Vercel:
+## Deployment / Live
 
-🔗 https://youtube-platform-clone.vercel.app
+[![Live Demo](https://img.shields.io/badge/Live-Demo-yellow?style=for-the-badge&logo=vercel)](https://youtube-platform-clone.vercel.app)
 
 ---
 
@@ -141,13 +139,6 @@ npx create-react-app my-app
 
 ```bash
   npm install
-```
-
-## 4. Create .env File
-
-```bash
- REACT_APP_YOUTUBE_API_KEY  =  your_youtube_api_key_here
- REACT_APP_TMDB_API_KEY  =  your_tmdb_api_key_here
 ```
 
 ## 4. Install Tailwind CSS
@@ -175,10 +166,15 @@ npx create-react-app my-app
   http://localhost:3000
 ```
 
-## Made by -
+## Create .env File
 
-Satyam Kandpal
+```bash
+ REACT_APP_GOOGLE_KEY_API  =  your_youtube_api_key_here
+ REACT_APP_TMDB_API_KEY  =  your_tmdb_api_key_here
+```
 
-## Email: satyamkandpal8@gmail.com
+## Made by - Satyam Kandpal
+
+## Email - satyamkandpal8@gmail.com
 
 ## Linkedin - https://www.linkedin.com/in/satyam-kandpal-019326251/
