@@ -36,12 +36,14 @@ const SearchBar = () => {
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const json = await data.json();
     setSuggestions(json[1]);
+    console.log(json[1]);
     dispatch(cacheResults({ [searchQuery]: json[1] }));
   };
 
   const fetchAndStoreResults = async (query) => {
     const res = await fetch(YOUTUBE_SEARCH_RESULTS_API(query));
     const data = await res.json();
+    console.log(data);
     dispatch(setSearchResults({ query, results: data.items }));
     navigate(`/results?search_query=${encodeURIComponent(query)}`);
     setShowSuggestions(false);

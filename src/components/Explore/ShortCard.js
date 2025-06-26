@@ -4,7 +4,6 @@ const ShortCard = ({ info, isActive }) => {
   const { snippet, id } = info;
   const videoId = id?.videoId || id;
   const iframeRef = useRef();
-  console.log("Short Video ID:", videoId);
 
   useEffect(() => {
     const iframe = iframeRef.current?.contentWindow;

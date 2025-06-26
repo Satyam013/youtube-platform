@@ -18,12 +18,12 @@ import Games from "./components/Explore/Games";
 import Courses from "./components/Explore/Courses";
 import FashionPage from "./components/Explore/Fashion";
 import Podcast from "./components/Explore/Podcast";
-import SearchResults from "./components/Header/SearchText/SearchResults";
 import Shopping from "./components/Explore/Shopping";
 import News from "./components/Explore/News";
 import ThemeWrapper from "./components/Theme/ThemeWrapper";
 import { Toaster } from "react-hot-toast";
 import Draft from "./components/UnderDevelopment/UnderDevelopment";
+import SearchResults from "./components/Header/SearchText/SearchResults";
 
 const appRouter = createBrowserRouter([
   {

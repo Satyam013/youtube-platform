@@ -16,8 +16,7 @@ export const YOUTUBE_SUBSCRIPTION_API =
   "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=Ks-_Mh1QhMc&key=" +
   GOOGLE_API_KEY;
 
-export const YOUTUBE_TRENDING_VIDEOS = 
-`https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&regionCode=IN&maxResults=48&key=${GOOGLE_API_KEY}`;
+export const YOUTUBE_TRENDING_VIDEOS = `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&regionCode=IN&maxResults=48&key=${GOOGLE_API_KEY}`;
 
 export const YOUTUBE_VIDEO_DETAILS = (videoIds) =>
   `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics,contentDetails&id=${videoIds}&key=${GOOGLE_API_KEY}`;
@@ -52,7 +51,7 @@ export const YOUTUBE_FASHION_API = `https://www.googleapis.com/youtube/v3/search
 export const YOUTUBE_SHORTS_API = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=shorts&type=video&videoDuration=short&key=${GOOGLE_API_KEY}`;
 
 export const YOUTUBE_SEARCH_RESULTS_API = (query) =>
-  `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&type=video&key=${GOOGLE_API_KEY}&q=${query}`;
+  `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&type=video&key=${GOOGLE_API_KEY}&q=${query}`;
 
 export const YOUTUBE_SHOPPING_API = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=shopping%20haul&type=video&key=${GOOGLE_API_KEY}`;
 

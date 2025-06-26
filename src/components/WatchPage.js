@@ -31,7 +31,6 @@ const WatchPage = () => {
       const res = await fetch(YOUTUBE_VIDEO_DETAILS(videoId));
       const data = await res.json();
       const video = data.items?.[0];
-      console.log(data.items);
       setVideoDetails(video);
 
       if (video?.snippet?.channelId) {

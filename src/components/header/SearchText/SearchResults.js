@@ -12,7 +12,7 @@ const SearchResults = () => {
       </h2>
       <div className="flex flex-wrap gap-4">
         {results?.map((video) => (
-          <VideoCardTrending key={video.id.videoId || video.id} info={video} />
+          <VideoCardTrending key={video.id?.videoId || video.id} info={video} />
         ))}
       </div>
     </div>
