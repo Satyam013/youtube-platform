@@ -96,58 +96,6 @@ Key Engineering Concepts:
 
 ## 🏗️ Folder Structure
 
-namaste-youtube/
-├── public/
-│ ├── favicon.ico
-│ ├── index.html
-│ ├── logo192.png
-│ ├── logo512.png
-│ ├── manifest.json
-│ └── robots.txt
-
-├── src/
-│ ├── components/
-│ │ ├── BodySection/
-│ │ ├── Buttons/
-│ │ ├── ChatMessages/
-│ │ ├── Comments/
-│ │ ├── Explore/
-│ │ ├── Header/
-│ │ ├── Theme/
-│ │ ├── UI/
-│ │ ├── UnderDevelopment/
-│ │ ├── VideoCards/
-│ │ ├── Body.js
-│ │ ├── ThemeToggle.js
-│ │ ├── WatchControls.js
-│ │ └── WatchPage.js
-
-│ ├── utils/
-│ │ ├── constants/
-│ │ ├── slices/
-│ │ ├── appStore.js
-│ │ ├── format.js
-│ │ ├── helper.js
-│ │ └── mockAd.js
-
-│ ├── hooks/
-│ │ └── useSafeYouTubeFetch
-
-│ ├── App.css
-│ ├── App.js
-│ ├── App.test.js
-│ ├── index.js
-│ ├── reportWebVitals.js
-│ └── setupTests.js
-
-├── .env
-├── .gitignore
-├── LLD_Process.txt
-├── package-lock.json
-├── package.json
-├── README.md
-└── tailwind.config.js
-
 ---
 
 ---
@@ -168,8 +116,7 @@ namaste-youtube/
 
 ---
 
-Deployment
-This project is automatically deployed via Vercel:
+Deployment : This project is automatically deployed via Vercel:
 
 🔗 https://youtube-platform-clone.vercel.app
 
@@ -184,23 +131,35 @@ git clone https://github.com/your-username/namaste-youtube.git
 cd namaste-youtube
 ```
 
-Install Dependencies -> npm install
+## 2. Install Dependencies
 
-Create .env File
--> REACT_APP_YOUTUBE_API_KEY=your_youtube_api_key_here
--> REACT_APP_TMDB_API_KEY=your_tmdb_api_key_here
+```bash
+ npm install
+```
 
-Run the App -> npm start
-Go to: http://localhost:3000
+## 3. Create .env File
 
-Contributing ->
+```bash
+ REACT_APP_YOUTUBE_API_KEY  =  your_youtube_api_key_here
+ REACT_APP_TMDB_API_KEY  =  your_tmdb_api_key_here
+```
 
-- Fork the repo
-- Create your branch: git checkout -b feature-name
-- Commit your changes: git commit -m 'Add feature'
-- Push to GitHub: git push origin feature-name
-- Open a Pull Request
+## 4. Install All Other Requirements for Project.
 
-Made by - Satyam Kandpal
-Email: satyamkandpal8@gmail.com
-Linkedin - https://www.linkedin.com/in/satyam-kandpal-019326251/
+## 5. Run the App
+
+```bash
+  npm start
+```
+
+## 6. Go To Localhost
+
+```bash
+  http://localhost:3000
+```
+
+## Made by - Satyam Kandpal
+
+## Email: satyamkandpal8@gmail.com
+
+## Linkedin - https://www.linkedin.com/in/satyam-kandpal-019326251/
