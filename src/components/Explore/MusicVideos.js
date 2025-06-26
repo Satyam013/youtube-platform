@@ -2,18 +2,18 @@ import React, { useEffect, useState } from "react";
 import { getTrendingMusicVideosAPI } from "../../utils/constants/constant";
 import { Link } from "react-router-dom";
 import VideoCardTrending from "../VideoCards/VideoCardTrending";
-import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch"; // ✅ Import the hook
+import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch"; 
 
 const MusicVideos = () => {
   const [musicVideos, setMusicVideos] = useState([]);
-  const safeFetch = useSafeYoutubeFetch(); // ✅ Use the hook
+  const safeFetch = useSafeYoutubeFetch(); 
 
   useEffect(() => {
     fetchTrendingMusic();
   }, []);
 
   const fetchTrendingMusic = async () => {
-    const data = await safeFetch(getTrendingMusicVideosAPI("IN")); // ✅ Use safeFetch
+    const data = await safeFetch(getTrendingMusicVideosAPI("IN")); 
     if (!data) return;
     setMusicVideos(data.items || []);
   };

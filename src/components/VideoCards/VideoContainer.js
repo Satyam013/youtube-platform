@@ -4,12 +4,12 @@ import VideoCard from "./VideoCard";
 import { Link } from "react-router-dom";
 import AdVideoCard from "./AdVideoCard";
 import AD_VIDEOS from "../../utils/mockAd";
-import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch"; // ✅ Import the hook
+import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch";
 
 const VideoContainer = () => {
   const [videos, setVideos] = useState([]);
   const [currentAdIndex, setCurrentAdIndex] = useState(0);
-  const safeFetch = useSafeYoutubeFetch(); // ✅ Use the hook
+  const safeFetch = useSafeYoutubeFetch();
 
   useEffect(() => {
     getVideos();
@@ -21,7 +21,7 @@ const VideoContainer = () => {
   }, []);
 
   const getVideos = async () => {
-    const data = await safeFetch(YOUTUBE_VIDEOS_API); // ✅ Safe fetch
+    const data = await safeFetch(YOUTUBE_VIDEOS_API);
     if (!data) return;
     setVideos(data.items || []);
   };

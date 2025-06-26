@@ -1,20 +1,20 @@
 import React, { useEffect, useState, useRef } from "react";
 import { YOUTUBE_SHORTS_API } from "../../utils/constants/constant";
 import ShortCard from "./ShortCard";
-import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch"; // ✅ Import hook
+import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch";
 
 const Shorts = () => {
   const [shorts, setShorts] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef();
-  const safeFetch = useSafeYoutubeFetch(); // ✅ Use the hook
+  const safeFetch = useSafeYoutubeFetch(); 
 
   useEffect(() => {
     fetchShorts();
   }, []);
 
   const fetchShorts = async () => {
-    const data = await safeFetch(YOUTUBE_SHORTS_API); // ✅ Use safeFetch
+    const data = await safeFetch(YOUTUBE_SHORTS_API); 
     if (!data) return;
     setShorts(data.items || []);
   };

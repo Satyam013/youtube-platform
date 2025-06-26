@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { YOUTUBE_LIVE_API } from "../../utils/constants/constant";
 import VideoCardTrending from "../VideoCards/VideoCardTrending";
-import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch"; // ✅ Import the hook
+import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch"; 
 
 const Live = () => {
   const [liveVideos, setLiveVideos] = useState([]);
-  const safeFetch = useSafeYoutubeFetch(); // ✅ Use the hook
+  const safeFetch = useSafeYoutubeFetch(); 
 
   useEffect(() => {
     const fetchLive = async () => {
-      const searchData = await safeFetch(YOUTUBE_LIVE_API); // ✅ Replaced fetch with safeFetch
+      const searchData = await safeFetch(YOUTUBE_LIVE_API); 
       if (!searchData) return;
 
       if (!searchData.items?.length) {

@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { YOUTUBE_NEWS_API } from "../../utils/constants/constant";
 import VideoCardTrending from "../VideoCards/VideoCardTrending";
-import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch"; // ✅ Import the hook
+import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch";
 
 const News = () => {
   const [videos, setVideos] = useState([]);
-  const safeFetch = useSafeYoutubeFetch(); // ✅ Use the hook
+  const safeFetch = useSafeYoutubeFetch();
 
   useEffect(() => {
     fetchNewsVideos();
   }, []);
 
   const fetchNewsVideos = async () => {
-    const data = await safeFetch(YOUTUBE_NEWS_API); // ✅ Use safeFetch
+    const data = await safeFetch(YOUTUBE_NEWS_API); 
     if (!data) return;
     setVideos(data.items || []);
   };

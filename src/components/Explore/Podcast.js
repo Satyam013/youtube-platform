@@ -2,18 +2,18 @@ import React, { useEffect, useState } from "react";
 import { YOUTUBE_PODCASTS_API } from "../../utils/constants/constant";
 import VideoCard from "../VideoCards/VideoCard";
 import { Link } from "react-router-dom";
-import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch"; // ✅ Import hook
+import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch"; 
 
 const Podcast = () => {
   const [podcasts, setPodcasts] = useState([]);
-  const safeFetch = useSafeYoutubeFetch(); // ✅ Use the hook
+  const safeFetch = useSafeYoutubeFetch(); 
 
   useEffect(() => {
     fetchPodcasts();
   }, []);
 
   const fetchPodcasts = async () => {
-    const json = await safeFetch(YOUTUBE_PODCASTS_API); // ✅ Replaced fetch with safeFetch
+    const json = await safeFetch(YOUTUBE_PODCASTS_API); 
     if (!json) return;
     setPodcasts(json.items || []);
   };

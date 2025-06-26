@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { YOUTUBE_SPORTS_API } from "../../utils/constants/constant";
 import VideoCardTrending from "../VideoCards/VideoCardTrending";
 import { Link } from "react-router-dom";
-import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch"; // ✅ Import the hook
+import useSafeYoutubeFetch from "../../hooks/useSafeYoutubeFetch"; 
 
 const Sports = () => {
   const [videos, setVideos] = useState([]);
-  const safeFetch = useSafeYoutubeFetch(); // ✅ Use the hook
+  const safeFetch = useSafeYoutubeFetch(); 
 
   const fetchSportsVideos = async () => {
-    const data = await safeFetch(YOUTUBE_SPORTS_API); // ✅ Replaces fetch
+    const data = await safeFetch(YOUTUBE_SPORTS_API); 
     if (!data) return;
     setVideos(data.items || []);
   };

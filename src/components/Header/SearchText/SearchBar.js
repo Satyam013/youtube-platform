@@ -8,7 +8,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { setSearchResults } from "../../../utils/slices/searchResultSlice";
 import MicButton from "../SearchAudio/MicButton";
-import useSafeYoutubeFetch from "../../../hooks/useSafeYoutubeFetch"; // ✅ import the hook
+import useSafeYoutubeFetch from "../../../hooks/useSafeYoutubeFetch";
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -18,7 +18,7 @@ const SearchBar = () => {
   const searchCache = useSelector((store) => store.search);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const safeFetch = useSafeYoutubeFetch(); // ✅ use the hook
+  const safeFetch = useSafeYoutubeFetch();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -35,7 +35,7 @@ const SearchBar = () => {
   }, [searchQuery]);
 
   const getSearchSuggestion = async () => {
-    const data = await safeFetch(YOUTUBE_SEARCH_API + searchQuery); // ✅ use safeFetch
+    const data = await safeFetch(YOUTUBE_SEARCH_API + searchQuery);
     if (!data) return;
     setSuggestions(data[1]);
     console.log(data[1]);
@@ -43,7 +43,7 @@ const SearchBar = () => {
   };
 
   const fetchAndStoreResults = async (query) => {
-    const data = await safeFetch(YOUTUBE_SEARCH_RESULTS_API(query)); // ✅ use safeFetch
+    const data = await safeFetch(YOUTUBE_SEARCH_RESULTS_API(query));
     if (!data) return;
     console.log(data);
     dispatch(setSearchResults({ query, results: data.items }));
