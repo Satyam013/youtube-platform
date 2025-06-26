@@ -131,22 +131,39 @@ git clone https://github.com/your-username/namaste-youtube.git
 cd namaste-youtube
 ```
 
-## 2. Install Dependencies
+## 2. If You Just Created a Project via CRA
 
 ```bash
- npm install
+npx create-react-app my-app
 ```
 
-## 3. Create .env File
+## 3. To install dependencies
+
+```bash
+  npm install
+```
+
+## 4. Create .env File
 
 ```bash
  REACT_APP_YOUTUBE_API_KEY  =  your_youtube_api_key_here
  REACT_APP_TMDB_API_KEY  =  your_tmdb_api_key_here
 ```
 
-## 4. Install All Other Requirements for Project.
+## 4. Install Tailwind CSS
 
-## 5. Run the App
+```bash
+  npm install -D tailwindcss postcss autoprefixer
+  npx tailwindcss init -p
+```
+
+## 5. Install Redux Toolkit & React-Redux
+
+```bash
+  npm install @reduxjs/toolkit react-redux
+```
+
+## 6. Run the App
 
 ```bash
   npm start
@@ -158,7 +175,9 @@ cd namaste-youtube
   http://localhost:3000
 ```
 
-## Made by - Satyam Kandpal
+## Made by -
+
+Satyam Kandpal
 
 ## Email: satyamkandpal8@gmail.com
 
