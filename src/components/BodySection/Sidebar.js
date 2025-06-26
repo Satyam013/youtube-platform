@@ -33,12 +33,12 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/shorts" className={menuItemClass}>
+          <Link to="/same" className={menuItemClass}>
             🎬 Shorts
           </Link>
         </li>
         <li>
-          <Link to="/subscription" className={menuItemClass}>
+          <Link to="/same" className={menuItemClass}>
             <img
               alt="subs_logo"
               src={SUBSCRIPTION_ICON}
@@ -104,30 +104,30 @@ const Sidebar = () => {
         </li>
       </ul>
 
-      {/* Subscriptions */}
-      {/* <h1 className="font-bold pt-5">Subscriptions</h1>
+      {/* Subscriptions  - User */}
+      <h1 className="font-bold pt-5">Subscriptions</h1>
       <ul>
         <li>
-          <Link to="/home" className={menuItemClass}>
+          <Link to="/same" className={menuItemClass}>
             Home
           </Link>
         </li>
         <li>
-          <Link to="/shorts" className={menuItemClass}>
+          <Link to="/same" className={menuItemClass}>
             Shorts
           </Link>
         </li>
         <li>
-          <Link to="/videos" className={menuItemClass}>
+          <Link to="/same" className={menuItemClass}>
             Videos
           </Link>
         </li>
         <li>
-          <Link to="/movies" className={menuItemClass}>
+          <Link to="/same" className={menuItemClass}>
             Movies
           </Link>
         </li>
-      </ul> */}
+      </ul>
 
       {/* Explore */}
       <h1 className="font-bold pt-5">Explore</h1>
@@ -193,22 +193,22 @@ const Sidebar = () => {
       <h1 className="font-bold pt-5">More from Youtube</h1>
       <ul>
         <li>
-          <Link to="/premium" className={menuItemClass}>
+          <Link to="/same" className={menuItemClass}>
             Youtube Premium
           </Link>
         </li>
         <li>
-          <Link to="/studio" className={menuItemClass}>
+          <Link to="/same" className={menuItemClass}>
             Youtube Studio
           </Link>
         </li>
         <li>
-          <Link to="/music" className={menuItemClass}>
+          <Link to="/same" className={menuItemClass}>
             Youtube Music
           </Link>
         </li>
         <li>
-          <Link to="/kids" className={menuItemClass}>
+          <Link to="/same" className={menuItemClass}>
             Youtube Kids
           </Link>
         </li>
@@ -217,22 +217,22 @@ const Sidebar = () => {
       {/* Other */}
       <ul className="pt-2">
         <li>
-          <Link to="/settings" className={menuItemClass}>
+          <Link to="/same" className={menuItemClass}>
             Settings
           </Link>
         </li>
         <li>
-          <Link to="/report-history" className={menuItemClass}>
+          <Link to="/same" className={menuItemClass}>
             Report history
           </Link>
         </li>
         <li>
-          <Link to="/help" className={menuItemClass}>
+          <Link to="/same" className={menuItemClass}>
             Help
           </Link>
         </li>
         <li>
-          <Link to="/feedback" className={menuItemClass}>
+          <Link to="/same" className={menuItemClass}>
             Send feedback
           </Link>
         </li>

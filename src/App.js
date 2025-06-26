@@ -23,6 +23,7 @@ import Shopping from "./components/Explore/Shopping";
 import News from "./components/Explore/News";
 import ThemeWrapper from "./components/Theme/ThemeWrapper";
 import { Toaster } from "react-hot-toast";
+import Draft from "./components/UnderDevelopment/UnderDevelopment";
 
 const appRouter = createBrowserRouter([
   {
@@ -88,6 +89,10 @@ const appRouter = createBrowserRouter([
       {
         path: "news",
         element: <News />,
+      },
+      {
+        path: "same",
+        element: <Draft />,
       },
     ],
   },

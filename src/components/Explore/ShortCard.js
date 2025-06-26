@@ -1,15 +1,14 @@
-// src/components/ShortCard.js
 import React, { useRef, useEffect } from "react";
 
 const ShortCard = ({ info, isActive }) => {
   const { snippet, id } = info;
   const videoId = id?.videoId || id;
   const iframeRef = useRef();
+  console.log("Short Video ID:", videoId);
 
   useEffect(() => {
     const iframe = iframeRef.current?.contentWindow;
 
-    // Communicate with the embedded YouTube player via postMessage
     if (iframe && window.postMessage) {
       iframe.postMessage(
         JSON.stringify({
@@ -23,7 +22,7 @@ const ShortCard = ({ info, isActive }) => {
   }, [isActive]);
 
   return (
-    <div className="w-[360px] h-[640px] sm:w-[400px] sm:h-[700px]  rounded-xl overflow-hidden shadow-2xl relative">
+    <div className="w-[360px] h-[640px] sm:w-[400px] sm:h-[700px] rounded-xl overflow-hidden shadow-2xl relative">
       <iframe
         ref={iframeRef}
         className="w-full h-full"
