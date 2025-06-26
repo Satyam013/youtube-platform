@@ -96,6 +96,61 @@ Key Engineering Concepts:
 
 ## 🏗️ Folder Structure
 
+```bash
+namaste-youtube/
+├── public/
+│ ├── favicon.ico
+│ ├── index.html
+│ ├── logo192.png
+│ ├── logo512.png
+│ ├── manifest.json
+│ └── robots.txt
+
+├── src/
+│ ├── components/
+│ │ ├── BodySection/
+│ │ ├── Buttons/
+│ │ ├── ChatMessages/
+│ │ ├── Comments/
+│ │ ├── Explore/
+│ │ ├── Header/
+│ │ ├── Theme/
+│ │ ├── UI/
+│ │ ├── UnderDevelopment/
+│ │ ├── VideoCards/
+│ │ ├── Body.js
+│ │ ├── ThemeToggle.js
+│ │ ├── WatchControls.js
+│ │ └── WatchPage.js
+
+│ ├── utils/
+│ │ ├── constants/
+│ │ ├── slices/
+│ │ ├── appStore.js
+│ │ ├── format.js
+│ │ ├── helper.js
+│ │ └── mockAd.js
+
+│ ├── hooks/
+│ │ └── useSafeYouTubeFetch
+
+│ ├── App.css
+│ ├── App.js
+│ ├── App.test.js
+│ ├── index.js
+│ ├── reportWebVitals.js
+│ └── setupTests.js
+
+├── .env
+├── .gitignore
+├── LLD_Process.txt
+├── package-lock.json
+├── package.json
+├── README.md
+└── tailwind.config.js
+
+```
+
 ---
 
 ## 🧰 Technologies Used
