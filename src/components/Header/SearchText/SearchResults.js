@@ -5,7 +5,7 @@ const SearchResults = () => {
   const { results, query } = useSelector((store) => store.searchResult);
 
   return (
-    <div className="p-4">
+    <div className="p-4 cursor-pointer">
       <h2 className="text-xl font-semibold mb-4">
         Search results for:{" "}
         <span className="text-black-600 font-bold">{query}</span>

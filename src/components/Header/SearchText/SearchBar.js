@@ -84,7 +84,7 @@ const SearchBar = () => {
       </div>
 
       {showSuggestions && suggestions.length > 0 && (
-        <div className="absolute bg-white py-2 px-2 w-[94%] shadow-lg rounded-lg border mt-1 z-10 dark:text-black dark:">
+        <div className="absolute bg-white py-2 px-2 w-[94%] shadow-lg rounded-lg border mt-1 z-10 dark:text-black ">
           <ul>
             {suggestions.map((s) => (
               <li
