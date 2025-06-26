@@ -96,7 +96,13 @@ Key Engineering Concepts:
 
 ## 🏗️ Folder Structure
 
-```bash
+<details>
+
+<summary>📁 Click to view the project structure</summary>
+
+<br/>
+
+```
 namaste-youtube/
 ├── src/
 │ ├── components/
@@ -143,7 +149,7 @@ namaste-youtube/
 
 ```
 
----
+ </details>
 
 ## 🧰 Technologies Used
 
