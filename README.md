@@ -1,6 +1,6 @@
-# 🎬 Namaste YouTube Clone
+# 🎬 YouTube Clone
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge&logo=vercel)](https://youtube-platform-clone.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-purple?style=for-the-badge&logo=vercel)](https://youtube-platform-clone.vercel.app)
 
 A feature-rich, production-grade **YouTube Clone** built with **React.js**, **Redux Toolkit**, **Tailwind CSS**, **YouTube Data API v3**, and **TMDB API** — showcasing a blend of real-world UI/UX, scalable architecture, and advanced frontend engineering practices.
 
@@ -160,13 +160,13 @@ npx create-react-app my-app
   npm start
 ```
 
-## 6. Go To Localhost
+## 7. Go To Localhost
 
 ```bash
   http://localhost:3000
 ```
 
-## Create .env File
+## 8. Create .env File
 
 ```bash
  REACT_APP_GOOGLE_KEY_API  =  your_youtube_api_key_here
