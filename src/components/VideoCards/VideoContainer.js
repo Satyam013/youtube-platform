@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { YOUTUBE_VIDEOS_API } from "../../utils/constant";
+import { YOUTUBE_VIDEOS_API } from "../../utils/constants/constant";
 import VideoCard from "./VideoCard";
 import { Link } from "react-router-dom";
 import MOCK_AD_VIDEO from "../../utils/mockAd";
@@ -31,7 +31,7 @@ const VideoContainer = () => {
   const currentAd = AD_VIDEOS[currentAdIndex];
 
   return (
-    <div className="p-4 bg-white text-black min-h-screen max-w-6xl ">
+    <div className="p-4 bg-white text-black min-h-screen max-w-6xl dark:bg-black">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {/* {videos[0] && <AdVideoCard key={"ad"} info={videos[0]} />} */}
         <div className="w-full sm:w-[310px]">

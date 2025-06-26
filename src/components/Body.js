@@ -19,7 +19,7 @@ const Body = () => {
         }`}
       >
         {location.pathname === "/" && (
-          <div className="sticky top-2 z-20 bg-white">
+          <div className="sticky top-2 z-20 bg-white dark:bg-black">
             <ButtonList />
           </div>
         )}

@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { cacheResults } from "../../../utils/searchSlice";
+import { cacheResults } from "../../../utils/slices/searchSlice";
 import {
   YOUTUBE_SEARCH_API,
   YOUTUBE_SEARCH_RESULTS_API,
-} from "../../../utils/constant";
+} from "../../../utils/constants/constant";
 import { useNavigate } from "react-router-dom";
-import { setSearchResults } from "../../../utils/searchResultSlice";
+import { setSearchResults } from "../../../utils/slices/searchResultSlice";
 import MicButton from "../SearchAudio/MicButton";
 
 const SearchBar = () => {
@@ -56,7 +56,7 @@ const SearchBar = () => {
     <div className="col-span-7 relative">
       <div className="flex justify-center ">
         <input
-          className="w-[70%] border border-gray-400 px-3 py-1 text-sm rounded-l-full"
+          className="w-full border border-gray-400 px-4 py-1 text-lg rounded-l-full dark:text-black"
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
@@ -83,7 +83,7 @@ const SearchBar = () => {
       </div>
 
       {showSuggestions && suggestions.length > 0 && (
-        <div className="absolute bg-white py-2 px-2 w-full shadow-lg rounded-lg border mt-1 z-10">
+        <div className="absolute bg-white py-2 px-2 w-full shadow-lg rounded-lg border mt-1 z-10 dark:text-black">
           <ul>
             {suggestions.map((s) => (
               <li

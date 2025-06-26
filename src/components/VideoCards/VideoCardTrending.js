@@ -1,16 +1,6 @@
-import React from "react";
-import { MoreVertical } from "lucide-react";
-
 const VideoCardTrending = ({ info, isLive }) => {
   const { snippet, statistics = {}, id } = info;
-  const {
-    title,
-    thumbnails,
-    channelTitle,
-    publishedAt,
-    description,
-    liveBroadcastContent,
-  } = snippet;
+  const { title, thumbnails, channelTitle, publishedAt, description } = snippet;
 
   const timeSince = (date) => {
     const seconds = Math.floor((new Date() - new Date(date)) / 1000);
@@ -30,24 +20,21 @@ const VideoCardTrending = ({ info, isLive }) => {
   };
 
   return (
-    <div className="flex w-full gap-3 pb-6 border-b border-gray-300 dark:border-gray-700 bg-white rounded-lg shadow-md p-3">
+    <div className="flex w-full gap-3 pb-6 border-b border-gray-300 dark:hover:bg-gray-900 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
       {/* Thumbnail */}
-      <img
-        src={thumbnails?.medium?.url}
-        alt={title}
-        className="w-64 h-36 rounded-lg object-cover"
-      />
+      <div>
+        <img
+          src={thumbnails?.medium?.url}
+          alt={title}
+          className=" w-64 h-36 rounded-lg object-cover"
+        />
+      </div>
 
       {/* Video Info */}
-      <div className="flex flex-col flex-1 relative -ml-1 text-black">
+      <div className="flex flex-col flex-1 relative -ml-1 text-black dark:text-white ">
         {/* Title + Live badge */}
         <div className="flex items-center gap-2">
           <h3 className="text-lg font-semibold line-clamp-2 pr-6">{title}</h3>
-          {isLive && (
-            <span className="bg-red-600 text-white text-xs font-semibold px-2 py-1 rounded">
-              🔴 LIVE
-            </span>
-          )}
         </div>
 
         {/* Channel + views + time */}
@@ -75,6 +62,13 @@ const VideoCardTrending = ({ info, isLive }) => {
 
         {/* Description */}
         <p className="text-sm mt-2 line-clamp-2 pr-6">{description}</p>
+        <div className="pt-10">
+          {isLive && (
+            <span className=" bg-red-600 text-white text-xs font-semibold px-2 py-1 rounded  dark:hover:bg-green-600 dark:hover:text-black">
+              🔴 LIVE
+            </span>
+          )}
+        </div>
       </div>
     </div>
   );

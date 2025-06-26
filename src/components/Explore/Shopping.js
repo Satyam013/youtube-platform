@@ -1,6 +1,6 @@
 // components/Shopping.js
 import React, { useEffect, useState } from "react";
-import { YOUTUBE_SHOPPING_API } from "../../utils/constant";
+import { YOUTUBE_SHOPPING_API } from "../../utils/constants/constant";
 import { Link } from "react-router-dom";
 import VideoCardTrending from "../VideoCards/VideoCardTrending";
 

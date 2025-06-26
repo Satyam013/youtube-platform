@@ -72,7 +72,7 @@ const MicButton = ({ onVoiceResult }) => {
       ref={micRef}
       onClick={toggleMic}
       title="Search by Voice"
-      className={`ml-2 p-2 rounded-full transition-all duration-200
+      className={`ml-2 p-2 rounded-full transition-all duration-200 hover:bg-green-500 hover:dark:bg-green-600
         ${isListening ? "scale-150 bg-black" : "bg-transparent"}
       `}
     >

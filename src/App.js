@@ -2,8 +2,8 @@ import { Provider, useSelector } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./App.css";
+import appStore from "./utils/appStore";
 
-import store from "./utils/store";
 import Body from "./components/Body";
 import WatchPage from "./components/WatchPage";
 import MainContainer from "./components/BodySection/MainContainer";
@@ -21,6 +21,7 @@ import Podcast from "./components/Explore/Podcast";
 import SearchResults from "./components/Header/SearchText/SearchResults";
 import Shopping from "./components/Explore/Shopping";
 import News from "./components/Explore/News";
+import ThemeWrapper from "./components/Theme/ThemeWrapper";
 
 const appRouter = createBrowserRouter([
   {
@@ -91,20 +92,12 @@ const appRouter = createBrowserRouter([
   },
 ]);
 
-const ThemedApp = () => {
-  const isDarkTheme = useSelector((store) => store.theme.isDarkTheme);
-
-  return (
-    <div className={isDarkTheme ? "dark" : ""}>
-      <RouterProvider router={appRouter} />
-    </div>
-  );
-};
-
 function App() {
   return (
-    <Provider store={store}>
-      <ThemedApp />
+    <Provider store={appStore}>
+      <ThemeWrapper>
+        <RouterProvider router={appRouter} />
+      </ThemeWrapper>
     </Provider>
   );
 }

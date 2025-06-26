@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ThemeChangeIcon from "./ThemeChangeIcon";
+import { USER_LOGO } from "../../utils/constants/imagesConstant";
 
 const UserProfile = () => {
   const [open, setOpen] = useState(false);
@@ -18,29 +18,32 @@ const UserProfile = () => {
   return (
     <>
       <div className="relative inline-block " id="user-dropdown">
-        <img
-          src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
-          alt="User"
-          className="w-8 h-8 mr-2 cursor-pointer rounded-full"
+        <div
           onClick={toggleDropdown}
-        />
+          className="w-10 h-10 flex items-center justify-center rounded-full  dark:bg-gray-700 dark:hover:bg-white cursor-pointer  border dark:border-gray-500 transition duration-300"
+        >
+          <img
+            src={USER_LOGO}
+            alt="User"
+            className="w-10 h-10  cursor-pointer rounded-full"
+          />
+        </div>
 
         {open && (
-          <div className="absolute right-0 mt-2 bg-white text-black rounded-md shadow-md py-2 w-40 z-50">
-            <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+          <div className="absolute right-0 mt-2 bg-white text-black rounded-md shadow-md py-2 w-40 z-50 dark:bg-black dark:text-white ">
+            <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer hover:dark:text-black hover:dark:bg-green-600">
               My Channel
             </div>
-            <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+            <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer  hover:dark:text-black hover:dark:bg-green-600">
               Settings
             </div>
-            <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+            <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer  hover:dark:text-black hover:dark:bg-green-600">
               Logout
             </div>
           </div>
         )}
       </div>
-
-      <ThemeChangeIcon />
+      <div></div>
     </>
   );
 };

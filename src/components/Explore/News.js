@@ -1,6 +1,6 @@
 // components/News.js
 import React, { useEffect, useState } from "react";
-import { YOUTUBE_NEWS_API } from "../../utils/constant";
+import { YOUTUBE_NEWS_API } from "../../utils/constants/constant";
 import VideoCardTrending from "../VideoCards/VideoCardTrending";
 
 const News = () => {

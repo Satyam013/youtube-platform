@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import {
   YOUTUBE_TRENDING_VIDEOS,
   YOUTUBE_VIDEO_DETAILS,
-} from "../../utils/constant";
+} from "../../utils/constants/constant";
 import { Link } from "react-router-dom";
 import VideoCardTrending from "../VideoCards/VideoCardTrending";
+import VideoCard from "../VideoCards/VideoCard";
 
 const Trending = () => {
   const [videos, setVideos] = useState([]);
@@ -30,12 +31,15 @@ const Trending = () => {
 
   return (
     <div className="min-h-screen w-full  text-black px-4 pl-2 pt-4">
-      <h1 className="text-3xl font-semibold mb-6 px-2">🔥 Trending</h1>
+      <h1 className="text-3xl font-semibold mb-6 px-2 dark:text-white">
+        🔥 Trending
+      </h1>
 
-      <div className="w-full max-w-5xl mx-4 p-4 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {videos.map((video) => (
           <Link key={video.id} to={`/watch?v=${video.id}`}>
-            <VideoCardTrending info={video} />
+            {/* <VideoCardTrending info={video} /> */}
+            <VideoCard info={video} />
           </Link>
         ))}
       </div>

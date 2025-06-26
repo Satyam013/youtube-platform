@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { YOUTUBE_SPORTS_API } from "../../utils/constant";
+import { YOUTUBE_SPORTS_API } from "../../utils/constants/constant";
 import VideoCardTrending from "../VideoCards/VideoCardTrending"; // Use the trending-style full-info card
 import { Link } from "react-router-dom";
 
@@ -21,8 +21,10 @@ const Sports = () => {
   }, []);
 
   return (
-    <div className="p-4  text-black min-h-screen max-w-6xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">🏅 Sports Videos</h1>
+    <div className="p-4  text-black min-h-screen max-w-6xl dark:bg-black">
+      <h1 className="text-2xl font-bold mb-4 dark:text-white">
+        🏅 Sports Videos
+      </h1>
 
       <div className="flex flex-col gap-6">
         {videos.map((video) => (

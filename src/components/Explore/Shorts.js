@@ -1,6 +1,6 @@
 // src/components/Shorts.js
 import React, { useEffect, useState } from "react";
-import { YOUTUBE_SHORTS_API } from "../../utils/constant";
+import { YOUTUBE_SHORTS_API } from "../../utils/constants/constant";
 import ShortCard from "../Explore/Shorts";
 
 const Shorts = () => {

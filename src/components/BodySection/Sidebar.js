@@ -8,7 +8,7 @@ import {
   SUBSCRIPTION_ICON,
   WATCH_LATER_ICON,
   YOUR_VIDEOS_ICON,
-} from "../../utils/logoImage";
+} from "../../utils/constants/logoImage";
 
 const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
@@ -16,15 +16,19 @@ const Sidebar = () => {
   if (!isMenuOpen) return null;
 
   const menuItemClass =
-    "flex items-center gap-1 px-3 py-2 rounded-lg hover:bg-gray-200 hover:shadow-md transition whitespace-nowrap overflow-hidden text-ellipsis";
+    "flex items-center gap-1 px-3 py-2 rounded-lg hover:bg-gray-400 hover:shadow-md  whitespace-nowrap overflow-hidden text-ellipsis dark:hover:bg-green-700  transition-all duration-300 transform hover:scale-105 hover:shadow-xl";
 
   return (
-    <aside className="fixed top-14 left-0 w-46 h-[calc(100vh-56px)] overflow-y-hidden hover:overflow-y-scroll scrollbar-hide bg-white shadow-md z-40 p-4">
+    <aside className="fixed top-14 left-0 w-46 h-[calc(100vh-56px)] overflow-y-hidden hover:overflow-y-scroll scrollbar-hide  shadow-md z-40 p-4 bg-gray-100 dark:bg-black text-black dark:text-white ">
       {/* Main Section */}
       <ul>
         <li>
           <Link to="/" className={menuItemClass}>
-            <img alt="home_logo" src={HOME_ICON} className="h-4 w-4" />
+            <img
+              alt="home_logo"
+              src={HOME_ICON}
+              className="h-4 w-4 dark:brightness-200 dark:invert transition duration-200"
+            />
             Home
           </Link>
         </li>
@@ -35,7 +39,11 @@ const Sidebar = () => {
         </li>
         <li>
           <Link to="/subscription" className={menuItemClass}>
-            <img alt="subs_logo" src={SUBSCRIPTION_ICON} className="h-4 w-4" />
+            <img
+              alt="subs_logo"
+              src={SUBSCRIPTION_ICON}
+              className="h-4 w-4 dark:brightness-200 dark:invert transition duration-200"
+            />
             Subscriptions
           </Link>
         </li>
@@ -45,32 +53,52 @@ const Sidebar = () => {
       <h1 className="font-bold pt-5">You ➡️</h1>
       <ul>
         <li>
-          <Link to="/same" className={`text-white   bg-black ${menuItemClass}`}>
-            <img alt="subs_logo" src={HISTORY_ICON} className="h-4 w-4" />
+          <Link to="/same" className={menuItemClass}>
+            <img
+              alt="subs_logo"
+              src={HISTORY_ICON}
+              className="h-4 w-4 dark:brightness-200 dark:invert transition duration-200"
+            />
             History
           </Link>
         </li>
         <li>
-          <Link to="/same" className={`text-white   bg-black ${menuItemClass}`}>
-            <img alt="subs_logo" src={PLAYLIST_ICON} className="h-4 w-4" />
+          <Link to="/same" className={menuItemClass}>
+            <img
+              alt="subs_logo"
+              src={PLAYLIST_ICON}
+              className="h-4 w-4 dark:brightness-200 dark:invert transition duration-200"
+            />
             Playlists
           </Link>
         </li>
         <li>
-          <Link to="/same" className={`text-white   bg-black ${menuItemClass}`}>
-            <img alt="subs_logo" src={YOUR_VIDEOS_ICON} className="h-4 w-4" />
+          <Link to="/same" className={menuItemClass}>
+            <img
+              alt="subs_logo"
+              src={YOUR_VIDEOS_ICON}
+              className="h-4 w-4 dark:brightness-200 dark:invert transition duration-200"
+            />
             Your videos
           </Link>
         </li>
         <li>
-          <Link to="/same" className={`text-white   bg-black ${menuItemClass}`}>
-            <img alt="subs_logo" src={WATCH_LATER_ICON} className="h-4 w-4" />
+          <Link to="/same" className={menuItemClass}>
+            <img
+              alt="subs_logo"
+              src={WATCH_LATER_ICON}
+              className="h-4 w-4 dark:brightness-200 dark:invert transition duration-200"
+            />
             Watch Later
           </Link>
         </li>
         <li>
-          <Link to="/same" className={`text-white bg-black ${menuItemClass}`}>
-            <img alt="subs_logo" src={LIKE_ICON} className="h-4 w-4" />
+          <Link to="/same" className={menuItemClass}>
+            <img
+              alt="subs_logo"
+              src={LIKE_ICON}
+              className="h-4 w-4 dark:brightness-200 dark:invert transition duration-200"
+            />
             Liked videos
           </Link>
         </li>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { YOUTUBE_PODCASTS_API } from "../../utils/constant";
+import { YOUTUBE_PODCASTS_API } from "../../utils/constants/constant";
 import VideoCard from "../VideoCards/VideoCard";
 import { Link } from "react-router-dom";
 
@@ -21,8 +21,10 @@ const Podcast = () => {
   };
 
   return (
-    <div className="p-4 bg-white text-black min-h-screen max-w-6xl ">
-      <h2 className="text-xl font-bold mb-4">🎧 Popular Podcasts</h2>
+    <div className="p-4 bg-white text-black min-h-screen max-w-6xl dark:bg-black">
+      <h2 className="text-xl font-bold mb-4 dark:text-white">
+        🎧 Popular Podcasts
+      </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {podcasts.map((video) => (
           <Link

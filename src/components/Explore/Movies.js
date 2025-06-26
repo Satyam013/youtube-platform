@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { API_OPTIONS } from "../../utils/constant";
+import { API_OPTIONS } from "../../utils/constants/constant";
 import { Link } from "react-router-dom";
 import VideoCardMovies from "../VideoCards/VideoCardMovies";
 
@@ -25,7 +25,9 @@ const Movies = () => {
 
   return (
     <div className="p-4  text-black min-h-screen max-w-6xl mx-2">
-      <h1 className="text-2xl font-bold mb-4">🍿 Top Rated Movies</h1>
+      <h1 className="text-2xl font-bold mb-4 dark:text-white">
+        🍿 Top Rated Movies
+      </h1>
 
       <div className="flex flex-col gap-6">
         {movies.map((movie) => (

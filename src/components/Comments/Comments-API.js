@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { YOUTUBE_COMMENTS_API } from "../../utils/constant"; // update path if needed
+import { YOUTUBE_COMMENTS_API } from "../../utils/constants/constant"; // update path if needed
 
 const Comments = ({ videoId }) => {
   const [comments, setComments] = useState([]);

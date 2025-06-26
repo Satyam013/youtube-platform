@@ -10,7 +10,7 @@ const VideoCard = ({ info, isAd }) => {
   const { title, thumbnails, channelTitle, publishedAt } = snippet;
 
   return (
-    <div className="w-[310px] rounded-md overflow-hidden shadow-md bg-white relative hover:bg-gray-200">
+    <div className="w-[310px] rounded-md overflow-hidden shadow-md  relative hover:bg-gray-200 bg-white dark:bg-gray-900 text-black dark:text-white dark:hover:bg-green-800 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
       {isAd && (
         <span className="absolute top-50 left-1 bg-yellow-500 text-white text-xs font-semibold px-2 py-1 rounded">
           AD
@@ -30,15 +30,17 @@ const VideoCard = ({ info, isAd }) => {
         )}
       </div>
       <div className="p-3">
-        <h3 className="font-semibold text-sm line-clamp-2 text-black">
+        <h3 className="font-semibold text-sm line-clamp-2 text-black dark:text-white">
           {title}
         </h3>
-        <p className="text-xs text-gray-700 mt-1">{channelTitle}</p>
-        <p className="text-xs text-gray-600 mt-0.5">
+        <p className="text-xs text-gray-700 mt-1 dark:text-white">
+          {channelTitle}
+        </p>
+        <p className="text-xs text-gray-600 mt-0.5 dark:text-white">
           {formatViewCount(statistics?.viewCount)} •{" "}
           {formatPublishedTime(publishedAt)}
           {statistics?.likeCount && (
-            <span className="text-xs text-gray-500 mt-0.5 pl-2">
+            <span className="text-xs text-gray-500 mt-0.5 pl-2 dark:text-white">
               {formatLikeCount(statistics.likeCount)}
             </span>
           )}
