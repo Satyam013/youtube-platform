@@ -1,82 +1,3 @@
-// import React, { useEffect, useState } from "react";
-// import { useDispatch } from "react-redux";
-// import { closeMenu } from "../utils/slices/appSlice";
-// import { useSearchParams } from "react-router-dom";
-// import Comments from "../components/Comments/Comments-API";
-// import CommentsContainer from "./Comments/CommentsContainer";
-// import LiveChat from "./ChatMessages/LiveChat";
-
-// const WatchPage = () => {
-//   const [searchParams] = useSearchParams();
-//   const dispatch = useDispatch();
-//   const [videoDetails, setVideoDetails] = useState(null);
-
-//   const videoId = searchParams.get("v");
-
-//   useEffect(() => {
-//     dispatch(closeMenu());
-//     fetchVideoDetails();
-//   }, [videoId]);
-
-//   const fetchVideoDetails = async () => {
-//     try {
-//       const response = await fetch(
-//         `https://www.googleapis.com/youtube/v3/videos?part=snippet,liveStreamingDetails&id=${videoId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
-//       );
-//       const data = await response.json();
-//       setVideoDetails(data.items?.[0]);
-//     } catch (error) {
-//       console.error("Error fetching video details:", error);
-//     }
-//   };
-
-//   return (
-//     <div className="w-full flex flex-col">
-//       {/* Video Player & Live Chat */}
-//       <div className="px-5 flex flex-col md:flex-row gap-4">
-//         <div className="flex flex-col">
-//           <iframe
-//             width="1000"
-//             height="600"
-//             src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
-//             title="YouTube video player"
-//             frameBorder="0"
-//             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-//             allowFullScreen
-//             className="rounded-lg"
-//           ></iframe>
-
-//           {/* Video Title and Channel Info */}
-//           {videoDetails?.snippet && (
-//             <div className="mt-4">
-//               <h2 className="text-xl font-bold mb-1 text-black">
-//                 {videoDetails.snippet.title}
-//               </h2>
-//               <p className="text-sm text-gray-700 mb-2">
-//                 {videoDetails.snippet.channelTitle}
-//                 {videoDetails.snippet.liveBroadcastContent === "live" && (
-//                   <span className="ml-2 text-red-600 font-bold">🔴 LIVE</span>
-//                 )}
-//               </p>
-//             </div>
-//           )}
-//         </div>
-
-//         {/* Live Chat */}
-//         {/* <div className="w-full">
-//           <LiveChat />
-//         </div> */}
-//       </div>
-
-//       {/* Comments Section */}
-//       <Comments videoId={videoId} />
-//       {/* <CommentsContainer /> */}
-//     </div>
-//   );
-// };
-
-// export default WatchPage;
-
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/slices/appSlice";
@@ -84,13 +5,19 @@ import { useSearchParams } from "react-router-dom";
 import Comments from "../components/Comments/Comments-API";
 import CommentsContainer from "./Comments/CommentsContainer";
 import LiveChat from "./ChatMessages/LiveChat";
-import { YOUTUBE_COMMENTS_API } from "../utils/constants/constant";
 import WatchControls from "./WatchControls";
+import {
+  YOUTUBE_COMMENTS_API,
+  YOUTUBE_SUBSCRIBER_API,
+  YOUTUBE_VIDEO_DETAILS,
+} from "../utils/constants/constant";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
+
   const [videoDetails, setVideoDetails] = useState(null);
+  const [subscribers, setSubscribers] = useState(null);
 
   const videoId = searchParams.get("v");
 
@@ -101,17 +28,27 @@ const WatchPage = () => {
 
   const fetchVideoDetails = async () => {
     try {
-      const response = await fetch(YOUTUBE_COMMENTS_API);
-      const data = await response.json();
-      setVideoDetails(data.items?.[0]);
+      const res = await fetch(YOUTUBE_VIDEO_DETAILS(videoId));
+      const data = await res.json();
+      const video = data.items?.[0];
+      console.log(data.items);
+      setVideoDetails(video);
+
+      if (video?.snippet?.channelId) {
+        const channelRes = await fetch(
+          YOUTUBE_SUBSCRIBER_API(video?.snippet?.channelId)
+        );
+        const channelData = await channelRes.json();
+        const subs = channelData.items?.[0]?.statistics?.subscriberCount;
+        setSubscribers(subs);
+      }
     } catch (error) {
-      console.error("Error fetching video details:", error);
+      console.error("Error fetching video or channel details:", error);
     }
   };
 
   return (
     <div className="w-full flex flex-col">
-      {/* Video Player & Live Chat */}
       <div className="px-5 flex flex-col md:flex-row gap-4">
         <div className="flex flex-col">
           <iframe
@@ -125,30 +62,25 @@ const WatchPage = () => {
             className="rounded-lg"
           ></iframe>
 
-          {/* Video Title and Channel Info */}
           {videoDetails?.snippet && (
-            <div className="mt-4">
-              <h2 className="text-xl font-bold mb-1 text-black dark:text-white">
+            <>
+              <h2 className="text-xl font-bold mb-1 mt-4 text-black dark:text-white">
                 {videoDetails.snippet.title}
               </h2>
-              <p className="text-sm text-gray-700 dark:text-gray-400 mb-2">
-                {videoDetails.snippet.channelTitle}
-                {videoDetails.snippet.liveBroadcastContent === "live" && (
-                  <span className="ml-2 text-red-600 font-bold">🔴 LIVE</span>
-                )}
-              </p>
-            </div>
+              <WatchControls
+                videoId={videoId}
+                channelId={videoDetails.snippet.channelId}
+                logo={videoDetails.snippet.thumbnails.medium.url}
+                channelTitle={videoDetails.snippet.channelTitle}
+                subscribers={subscribers}
+                views={videoDetails.statistics?.viewCount}
+                likes={videoDetails.statistics?.likeCount}
+              />
+            </>
           )}
-
-          <WatchControls />
         </div>
-
-        {/* <div className="w-full">
-            <LiveChat /></div> 
-        */}
       </div>
 
-      {/* <CommentsContainer /> */}
       <Comments videoId={videoId} />
     </div>
   );

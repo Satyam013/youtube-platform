@@ -22,6 +22,7 @@ import SearchResults from "./components/Header/SearchText/SearchResults";
 import Shopping from "./components/Explore/Shopping";
 import News from "./components/Explore/News";
 import ThemeWrapper from "./components/Theme/ThemeWrapper";
+import { Toaster } from "react-hot-toast";
 
 const appRouter = createBrowserRouter([
   {
@@ -97,6 +98,7 @@ function App() {
     <Provider store={appStore}>
       <ThemeWrapper>
         <RouterProvider router={appRouter} />
+        <Toaster position="bottom-right" reverseOrder={false} />
       </ThemeWrapper>
     </Provider>
   );

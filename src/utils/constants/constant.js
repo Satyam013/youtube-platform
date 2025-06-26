@@ -58,3 +58,6 @@ export const YOUTUBE_SEARCH_RESULTS_API = (query) =>
 export const YOUTUBE_SHOPPING_API = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=shopping%20haul&type=video&key=${GOOGLE_API_KEY}`;
 
 export const YOUTUBE_NEWS_API = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=latest%20news&type=video&key=${GOOGLE_API_KEY}`;
+
+export const YOUTUBE_SUBSCRIBER_API = (s) =>
+  `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${s}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`;
