@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { setQuotaExceeded } from "../redux/apiQuotaSlice";
+import { setQuotaExceeded } from "../utils/slices/apiQuotaSlice";
 
 const useSafeYoutubeFetch = () => {
   const dispatch = useDispatch();
