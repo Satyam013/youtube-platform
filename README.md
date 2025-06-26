@@ -1,5 +1,7 @@
 # 🎬 Namaste YouTube Clone
 
+[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge&logo=vercel)](https://youtube-platform-clone.vercel.app)
+
 A feature-rich, production-grade **YouTube Clone** built with **React.js**, **Redux Toolkit**, **Tailwind CSS**, **YouTube Data API v3**, and **TMDB API** — showcasing a blend of real-world UI/UX, scalable architecture, and advanced frontend engineering practices.
 
 This project simulates the full YouTube experience:
@@ -128,6 +130,9 @@ namaste-youtube/
 │ │ ├── helper.js
 │ │ └── mockAd.js
 
+│ ├── hooks/
+│ │ └── useSafeYouTubeFetch
+
 │ ├── App.css
 │ ├── App.js
 │ ├── App.test.js
@@ -160,6 +165,13 @@ namaste-youtube/
 | **IndexedDB**             | Client-side offline storage for watch history |
 | **Speech API**            | Voice input for search bar                    |
 | **setInterval (Polling)** | Live chat simulation                          |
+
+---
+
+Deployment
+This project is automatically deployed via Vercel:
+
+🔗 https://youtube-platform-clone.vercel.app
 
 ---
 
