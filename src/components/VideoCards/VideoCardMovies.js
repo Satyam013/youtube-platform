@@ -1,6 +1,7 @@
 import React from "react";
+import { IMG_CDN_LINK } from "../../utils/constants/logoImage";
 
-const IMG_CDN = "https://image.tmdb.org/t/p/w500";
+const IMG_CDN = { IMG_CDN_LINK };
 
 const VideoCardMovies = ({ info }) => {
   if (!info) return null;

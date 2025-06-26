@@ -1,3 +1,5 @@
+import { USER_LOGO } from "../../utils/constants/imagesConstant";
+
 const commentsData = [
   {
     name: "Satyam Kandpal",
@@ -75,11 +77,7 @@ const Comment = ({ data }) => {
   const { name, text, replies } = data;
   return (
     <div className="flex shadow-sm bg-gray-100 p-2 rounded-lg">
-      <img
-        className="w-12 h-12"
-        alt="user"
-        src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
-      />
+      <img className="w-12 h-12" alt="user" src={USER_LOGO} />
       <div className="px-3">
         <p className="font-bold">{name}</p>
         <p>{text}</p>

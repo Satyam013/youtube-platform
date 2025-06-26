@@ -18,7 +18,8 @@ export const YOUTUBE_SUBSCRIPTION_API =
   "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=Ks-_Mh1QhMc&key=" +
   GOOGLE_API_KEY;
 
-export const YOUTUBE_TRENDING_VIDEOS = `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&regionCode=IN&maxResults=48&key=${GOOGLE_API_KEY}`;
+export const YOUTUBE_TRENDING_VIDEOS = 
+`https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&regionCode=IN&maxResults=48&key=${GOOGLE_API_KEY}`;
 
 export const YOUTUBE_VIDEO_DETAILS = (videoIds) =>
   `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics,contentDetails&id=${videoIds}&key=${GOOGLE_API_KEY}`;

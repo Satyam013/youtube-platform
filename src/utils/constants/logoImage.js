@@ -27,3 +27,5 @@ export const DARK_THEME_ICON =
 
 export const LIGHT_THEME_ICON =
   "https://img.icons8.com/?size=100&id=9313&format=png&color=FFFFFF";
+
+export const IMG_CDN_LINK = "https://image.tmdb.org/t/p/w500";
