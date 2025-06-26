@@ -58,9 +58,9 @@ const SearchBar = () => {
 
   return (
     <div className="col-span-7 relative">
-      <div className="flex justify-center ">
+      <div className="flex justify-center">
         <input
-          className="w-full border border-gray-400 px-4 py-1 text-lg rounded-l-full dark:text-black"
+          className="w-full border border-gray-400 px-5 py-1 text-lg rounded-l-full dark:text-black dark:hover:bg-gray-300"
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
@@ -84,12 +84,12 @@ const SearchBar = () => {
       </div>
 
       {showSuggestions && suggestions.length > 0 && (
-        <div className="absolute bg-white py-2 px-2 w-full shadow-lg rounded-lg border mt-1 z-10 dark:text-black">
+        <div className="absolute bg-white py-2 px-2 w-[94%] shadow-lg rounded-lg border mt-1 z-10 dark:text-black dark:">
           <ul>
             {suggestions.map((s) => (
               <li
                 key={s}
-                className="py-1 px-3 text-sm hover:bg-gray-100 cursor-pointer"
+                className="py-1 px-3 text-sm hover:bg-gray-300 cursor-pointer"
                 onMouseDown={() => fetchAndStoreResults(s)}
               >
                 🔍 {s}

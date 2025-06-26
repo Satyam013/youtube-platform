@@ -19,7 +19,7 @@ const Sidebar = () => {
     "flex items-center gap-1 px-3 py-2 rounded-lg hover:bg-gray-400 hover:shadow-md  whitespace-nowrap overflow-hidden text-ellipsis dark:hover:bg-green-700  transition-all duration-300 transform hover:scale-105 hover:shadow-xl";
 
   return (
-    <aside className="fixed top-14 left-0 w-46 h-[calc(100vh-56px)] overflow-y-hidden hover:overflow-y-scroll scrollbar-hide  shadow-md z-40 p-4 bg-gray-100 dark:bg-black text-black dark:text-white ">
+    <aside className="fixed top-14 left-0 w-44 h-[calc(100vh-56px)] overflow-y-hidden hover:overflow-y-scroll scrollbar-hide  shadow-md z-40 p-4 bg-gray-100 dark:bg-black text-black dark:text-white ">
       {/* Main Section */}
       <ul>
         <li>

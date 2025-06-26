@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { USER_LOGO } from "../../utils/constants/imagesConstant";
+import { Link } from "react-router-dom";
 
 const UserProfile = () => {
   const [open, setOpen] = useState(false);
@@ -31,14 +32,14 @@ const UserProfile = () => {
 
         {open && (
           <div className="absolute right-0 mt-2 bg-white text-black rounded-md shadow-md py-2 w-40 z-50 dark:bg-black dark:text-white ">
-            <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer hover:dark:text-black hover:dark:bg-green-600">
-              My Channel
+            <div className="px-4 py-2 hover:bg-gray-400 cursor-pointer hover:dark:text-black hover:dark:bg-green-600">
+              <Link to={"/same"}>My Channel</Link>
             </div>
-            <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer  hover:dark:text-black hover:dark:bg-green-600">
-              Settings
+            <div className="px-4 py-2 hover:bg-gray-400 cursor-pointer  hover:dark:text-black hover:dark:bg-green-600">
+              <Link to={"/same"}>Settings</Link>
             </div>
-            <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer  hover:dark:text-black hover:dark:bg-green-600">
-              Logout
+            <div className="px-4 py-2 hover:bg-gray-400 cursor-pointer  hover:dark:text-black hover:dark:bg-green-600">
+              <Link to={"/same"}>Login</Link>
             </div>
           </div>
         )}
