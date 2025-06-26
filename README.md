@@ -98,14 +98,6 @@ Key Engineering Concepts:
 
 ```bash
 namaste-youtube/
-├── public/
-│ ├── favicon.ico
-│ ├── index.html
-│ ├── logo192.png
-│ ├── logo512.png
-│ ├── manifest.json
-│ └── robots.txt
-
 ├── src/
 │ ├── components/
 │ │ ├── BodySection/
